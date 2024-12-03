@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.nttdata.testing",
-        tags = "@Airlines")
+        tags = "@Airlines or @JSONPlaceholder")
 public class RunnerTest {
 
 }

@@ -19,4 +19,3 @@ Feature: API Aerolineas
       | _id | name           | country | logo     | slogan                   | head_quaters | website     | established |
       | 1   | Ramon Castilla | Lima    | lima.png | Miraflores ciudad amable | Miraflores   | flowers.com | 1857        |
       | 3   | Alfredo Parodi | Lima    | lima.png | Centro financiero        | San Isidro   | isidro.pe   | 1931        |
-

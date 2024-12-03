@@ -1,7 +1,9 @@
 package com.nttdata.testing.stepDefinitions;
 
 
+import com.nttdata.testing.tasks.GetPostById;
 import com.nttdata.testing.tasks.PostAirline;
+import com.nttdata.testing.tasks.PostCreatePost;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -52,5 +54,26 @@ public class AirlineStepDefinitions {
         theActorInTheSpotlight().attemptsTo(PostAirline.fromPage(_id, name, country, logo, slogan, head_quaters, website, established));
     }
 
+
+
+    @Given("el {actor} establece el endpoint para obtener un post por ID")
+    public void elActorEstableceElEndpointParaObtenerUnPostPorID(Actor actor) {
+        actor.whoCan(CallAnApi.at("https://jsonplaceholder.typicode.com"));
+    }
+    @When("el {actor} envía una solicitud GET con el ID {string}")
+    public void elActorEnviaUnaSolicitudGETConElID(Actor actor, String id) {
+        actor.attemptsTo(GetPostById.withId(id));
+    }
+
+
+
+    @Given("el {actor} establece el endpoint POST para crear un post")
+    public void elActorEstableceElEndpointPOSTParaCrearUnPost(Actor actor) {
+        actor.whoCan(CallAnApi.at("https://jsonplaceholder.typicode.com"));
+    }
+    @When("el actor envía una solicitud HTTP POST con el {string} {string} {string}")
+    public void elActorEnviaUnaSolicitudHTTPPOSTConEl(String title, String body, String userId) {
+        theActorInTheSpotlight().attemptsTo(PostCreatePost.withDetails(title, body, userId));
+    }
 
 }
